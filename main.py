@@ -3,6 +3,8 @@ from kivy.lang import Builder #chama as janelas
 from telas import *
 from botoes import *
 import requests #interagir com um link na internet
+import os # para links https
+import certifi # requisicao certificada e segura para links https
 from bannervenda import BannerVenda
 from bannervendedor import BannerVendedor
 import os
@@ -10,6 +12,8 @@ from functools import partial #permite passar um parametro para uma funcao dentr
 from myfirebase import MyFirebase #importar funcoes criar conta e fazer login
 from datetime import date
 
+
+os.environ['SSL_CERT_FILE'] = certifi.where() # para links https
 
 GUI = Builder.load_file('main.kv') #interface visual, carregar arquivo da tela mostrada, sempre depois de tudo e antes do MainApp
 class MainApp(App):
