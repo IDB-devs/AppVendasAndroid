@@ -1,0 +1,51 @@
+<TodasVendasPage>:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "icones/bg1.png"
+        
+        Label:
+            # colocando a imgem no fundo
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "icones/botao_fino.png"
+            pos_hint: {"right": 0.85, "top": 0.95}
+            size_hint: 0.7, 0.2
+            text: "Total de Vendas: R$ "
+            id: label_total_vendas
+            markup: True #permite editar apenas parte do texto
+
+        #banner de informações com scroll interno da lista de vendas
+        ScrollView:
+            pos_hint: {"right": 1, "top": 0.75}
+            size_hint: 1, 0.60
+            GridLayout:
+                cols: 1
+                id: lista_vendas
+
+                # padrao para um ScrollView vertical
+                size_hint_y: None #se fosse ScrollView horizontal seria size_hint_x
+                spacing: 2, 2
+                height: self.minimum_height #se fosse ScrollView horizontal seria width
+                row_default_height: "90dp" #se fosse ScrollView horizontal seria col_default_width
+                row_force_default: True #se fosse ScrollView horizontal seria col_force_default
+        
+        # botao de voltar
+        FloatLayout:
+            pos_hint: {"right": 1, "top": 0.12}
+            size_hint: 1, 0.15
+            canvas:
+                Color: 
+                    rgb: utils.get_color_from_hex("#006D7E")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ImageButton:
+                pos_hint: {"right": 0.2, "top": 0.95}
+                size_hint: 0.2, 0.8
+                source: "icones/voltar.png"
+                on_release: app.sair_todas_vendas('ajustespage')

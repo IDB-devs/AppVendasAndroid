@@ -1,0 +1,62 @@
+<HomePage>:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "icones/bg1.png"
+        Label:
+            # colocando a imgem no fundo
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "icones/botao_fino.png"
+            pos_hint: {"right": 0.85, "top": 0.95}
+            size_hint: 0.7, 0.2
+            text: "Total de Vendas: R$ 0.0"
+            id: label_total_vendas
+            markup: True #permite editar apenas parte do texto
+
+        #banner de informações com scroll interno da lista de vendas
+        ScrollView:
+            pos_hint: {"right": 1, "top": 0.75}
+            size_hint: 1, 0.60
+            GridLayout:
+                cols: 1
+                id: lista_vendas
+
+                # padrao para um ScrollView vertical
+                size_hint_y: None #se fosse ScrollView horizontal seria size_hint_x
+                spacing: 2, 2
+                height: self.minimum_height #se fosse ScrollView horizontal seria width
+                row_default_height: "90dp" #se fosse ScrollView horizontal seria col_default_width
+                row_force_default: True #se fosse ScrollView horizontal seria col_force_default
+
+        # 3 botoes da homepage
+        GridLayout: # para separar proporcionalmente
+            rows: 1
+            #pos_hint e size_hint do FloatLayout superior
+            pos_hint: {"right": 1, "top": 0.15}
+            size_hint: 1, 0.15
+            canvas:
+                Color: 
+                    rgb: utils.get_color_from_hex("#006D7E")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            
+            #botao adcionar venda
+            ImageButton:
+                source: "icones/add.png"
+                on_release: app.mudar_tela("adicionarvendaspage")
+
+            #botao de vendedor
+            ImageButton:
+                source: "icones/salesman.png"
+                on_release: app.mudar_tela("listarvendedorespage")
+            
+            #botao ajustes
+            ImageButton:
+                source: "icones/settings.png"
+                on_release: app.mudar_tela("ajustespage")
