@@ -3,7 +3,7 @@ from kivy.app import App
 
 
 class MyFirebase():
-    API_KEY = 'AIzaSyDYbwV5CYD8o' #API de authenticação do banco de dados do google
+    API_KEY = 'XXXXXXXXXXXXXXX' #API de authenticação do banco de dados do google
     
     def criar_conta(self, email, senha):
         link = f"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={self.API_KEY}"
