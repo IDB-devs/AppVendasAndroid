@@ -12,7 +12,7 @@
 
 - The App has a login page, add a sale page, list total sales of the seller page, total company sales page, monitor sales of other sellers page using each seller's unique ID, change profile photo page and settings page.
 
-### Arquivos Explicação:
+### Files Explanation:
 
 - pasta icones -> Where the images necessary for the application to function are stored.
 - pasta kv -> Folder where the application window files (frontend) are stored.
